@@ -22,12 +22,12 @@ public class WaterPoolCollectorImpl implements WaterPoolCollector {
             if (left == 0 && right == landscape.length - 1) break;
             if (leftShore != -1 && left > 0) left--;
             if (rightShore != -1 && right < landscape.length - 1) right++;
-            if (left > 0 && landscape[left-1] < landscape[left]) {
-                pit += calculateWaterAmount(Arrays.copyOfRange(landscape, 0, left+1));
+            if (left > 0 && landscape[left] < landscape[left+1]) {
+                pit += calculateWaterAmount(Arrays.copyOfRange(landscape, 0, left+2));
                 left = 0;
             }
-            if (right < landscape.length - 1 && landscape[right+1] < landscape[right]) {
-                pit += calculateWaterAmount(Arrays.copyOfRange(landscape, right, landscape.length));
+            if (right < landscape.length - 1 && landscape[right] < landscape[right-1]) {
+                pit += calculateWaterAmount(Arrays.copyOfRange(landscape, right-1, landscape.length));
                 right = landscape.length-1;
             }
         }
@@ -36,7 +36,7 @@ public class WaterPoolCollectorImpl implements WaterPoolCollector {
 
     private int calculateShore(int[] landscape, int position, int direction) {
         int shore = -1;
-        if (landscape[position + direction] < landscape[position]) {
+        if (landscape[position + direction] <= landscape[position]) {
             shore = landscape[position];
         }
         return shore;

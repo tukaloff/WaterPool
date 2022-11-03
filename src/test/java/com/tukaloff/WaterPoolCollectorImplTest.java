@@ -20,6 +20,24 @@ class WaterPoolCollectorImplTest {
     }
 
     @Test
+    void calculateWaterAmountExtended() {
+        int[] pool = {5,2,3,4,5,4,0,3,1  ,1,2};
+        assertEquals(11, collector.calculateWaterAmount(pool));
+    }
+
+    @Test
+    void calculateWaterAmountAnother() {
+        int[] pool = {3,1,2,3,2,9,0,2,1};
+        assertEquals(6, collector.calculateWaterAmount(pool));
+    }
+
+    @Test
+    void calculateWaterAmountAnother2() {
+        int[] pool = {3,1,3,2,2};
+        assertEquals(2, collector.calculateWaterAmount(pool));
+    }
+
+    @Test
     void calculateWaterAmountExampleInversed() {
         int[] pool = {5,2,3,4,5,4,0,3,1};
         for(int i = 0; i < pool.length / 2; i++) {
