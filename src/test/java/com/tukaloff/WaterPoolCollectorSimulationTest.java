@@ -10,14 +10,17 @@ class WaterPoolCollectorSimulationTest {
     void calculateWaterAmountExample() {
         int[] pool = {5,2,3,4,5,4,0,3,1};
         assertEquals(9, collector.calculateWaterAmount(pool));
+    }
+    @Test
+    void calculateWaterAmountExampleInverse() {
+        int[] pool = {5,2,3,4,5,4,0,3,1};
 
         for(int i = 0; i < pool.length / 2; i++) {
             int temp = pool[i];
             pool[i] = pool[pool.length - i - 1];
             pool[pool.length - i - 1] = temp;
         }
-        // TODO: !pass
-//        assertEquals(9, collector.calculateWaterAmount(pool));
+        assertEquals(9, collector.calculateWaterAmount(pool));
     }
 
     @Test

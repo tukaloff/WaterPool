@@ -2,10 +2,12 @@ package com.tukaloff;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-class WaterPoolCollectorImplTest {
-    WaterPoolCollector collector = new WaterPoolCollectorImpl();
+class WaterPoolCollectorLinearTest {
+    WaterPoolCollector collector = new WaterPoolCollectorLinear();
     @Test
     void calculateWaterAmountExample() {
         int[] pool = {5,2,3,4,5,4,0,3,1};
@@ -81,4 +83,5 @@ class WaterPoolCollectorImplTest {
         int[] emptyPool = {2, 3, 2};
         assertEquals(0, collector.calculateWaterAmount(emptyPool));
     }
+
 }
