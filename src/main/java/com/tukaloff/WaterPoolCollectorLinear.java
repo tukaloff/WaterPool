@@ -12,7 +12,6 @@ public class WaterPoolCollectorLinear implements WaterPoolCollector {
                 max = height;
             }
         }
-//        int maxVolume = (max - min) * landscape.length * 2;
         int volume = 0;
 
         for (int layer = min; layer <= max; layer++) {
